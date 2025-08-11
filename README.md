@@ -131,7 +131,7 @@ Our approach followed these steps:
 | **AUC**                | ?  |
 | **Balanced Accuracy**  | ?  |
 | **Fraud Capture Rate** | ?  |
-| **Final Score**        | ? |
+| **Final Score**        | 0.76594 |
 
 ---
 

@@ -124,7 +124,7 @@ Our approach followed these steps:
 ---
 
 
-## 📈 Results
+## Results
 
 | Metric                 | Score |
 | ---------------------- | ----- |
@@ -143,7 +143,7 @@ Our approach followed these steps:
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 

@@ -149,21 +149,6 @@ Our approach followed these steps:
 
 ---
 
-##  Repository Structure
-
-```
- AML-Detection
- ┣  README.md               # Project documentation
- ┣  requirements.txt        # Python dependencies
- ┣  data_preprocessing.py   # Data cleaning & feature engineering
- ┣  model_training.py       # Model building & evaluation
- ┣  utils.py                 # Helper functions (metrics, loaders)
- ┗  notebooks               # Exploratory data analysis & experiments
-```
-
----
-
-
 ## Results
 
 | Metric                 | Score |

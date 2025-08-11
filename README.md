@@ -12,6 +12,31 @@ The main task:
 
 > **Build a binary classification model to identify laundering transactions among legitimate ones.**
 
+
+---
+
+## Dataset
+
+The dataset contains **anonymized banking transactions** aimed at detecting suspicious behavior possibly linked to money laundering.
+
+**Files:**
+
+* **`sus8_train.csv`** — 55,307 labeled transactions (training set)
+* **`sus8_test.csv`** — 23,743 unlabeled transactions (test set)
+* **`submission.txt`** — Team LVRS Submission 
+
+**Key Features:**
+
+* **From Account / To Account** — Anonymized sender/receiver IDs
+* **Payment Type** — Transaction type (e.g., `"Credit"`, `"Cheque"`)
+* **Amount Paid** — Transaction amount
+* **Type Account From / To** — Account types (`A`–`F`)
+* **Avg Stock From / To** — Avg. account balance in last 30 days
+* **Is Laundering** — Target label (1 = laundering, 0 = legitimate) — *train set only*
+
+The dataset is highly **imbalanced** and may contain noise, missing values, and complex interdependencies, reflecting real-world AML detection challenges.
+
+
 ---
 
 ## Problem Statement

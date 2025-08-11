@@ -168,16 +168,19 @@ Our approach followed these steps:
 
 ## Team Members 
 
+* **L**eonardo Rocci   
+* **V**aleria Avino  
+* **R**iccardo Soleo  
+
+
 *( before the hackathon )*
-<img width="396" height="183" alt="image" src="https://github.com/user-attachments/assets/caaa3dc7-fc5c-4e1e-9f95-f53e7a799cfe" />
+
+<img width="228" height="105" alt="image" src="https://github.com/user-attachments/assets/fb0005be-238a-4a30-a6ee-3fdbbf7c88aa" />
 
 
-| **L**eonardo Rocci | |
-| **V**aleria Avino  | |
-| **R**iccardo Soleo | |
+*( ... during the hackathon )*
 
-*( and... during the hackathon )*
-<img width="426" height="317" alt="image" src="https://github.com/user-attachments/assets/d5784e2f-5963-442d-afda-f22ac9613129" />
+<img width="228" height="105" alt="image" src="https://github.com/user-attachments/assets/4cdff526-b9f4-4bdf-8ef3-5335014bf447" />
 
 ---
 

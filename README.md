@@ -56,8 +56,6 @@ To assess model performance fairly and effectively, the hackathon defined a **cu
 
 * Measures the model’s ability to distinguish between fraudulent and non-fraudulent transactions.
 
----
-
 ### 2. **Balanced Accuracy**
 
 Ensures good performance on both classes, even with imbalance:
@@ -75,7 +73,6 @@ Where:
 * **TN**: Legitimate correctly classified
 * **FP**: Legitimate misclassified as fraud
 
----
 
 ### 3. **Fraud Capture Rate (Top-N Predictions)**
 
@@ -91,8 +88,6 @@ Where:
 * $T_{485}$: Indices of the top-485 highest fraud probability predictions
 * $y_i$: True label of transaction *i* (1 = fraud, 0 = legitimate)
 * $T$: Total set of fraudulent transactions
-
----
 
 ### **Final Score**
 
@@ -112,68 +107,12 @@ $$
 
 Our approach followed these steps:
 
-Alright — based on the extract you gave me from your notebook, I’ll add a **"My Approach"** section that clearly explains what you did, why you did it, and why certain models were chosen.
-Here’s the updated README with the new section at the end:
-
----
-
-# 🏆 AML Detection Hackathon
-
-## 📜 Overview
-
-This challenge focuses on **detecting money laundering** — the illegal process of making illicit funds appear legitimate. Participants work with realistic, anonymized banking data and apply **machine learning** to identify suspicious transactions hidden among thousands of legitimate ones.
-
----
-
-## 🎯 Problem
-
-Given a dataset of transactions (with a small fraction suspected of laundering), the goal is to build a **binary classification model** to distinguish between regular and laundering transactions.
-
----
-
-## 📂 Dataset
-
-*(Download available at the end of the hackathon page)*
-
-**Files:**
-
-* `sus8_train.csv` — 55,307 labeled transactions (training)
-* `sus8_test.csv` — 23,743 unlabeled transactions (testing)
-* `sample_submission.txt` — Example submission format
-
-**Features:**
-
-* Sender & Receiver account IDs
-* Payment type (e.g., Credit, Cheque)
-* Amount paid
-* Sender/Receiver account type (`A`–`F`)
-* Avg. account balance over last 30 days
-* **Is Laundering** — target label (train set only)
-
-💡 Data is **imbalanced**, may include noise/missing values, and reflects realistic AML detection challenges.
-
----
-
-## 📊 Evaluation Metrics
-
-The final score is the **average** of three metrics:
-
-1. **AUC** — Ability to separate fraudulent from legitimate transactions.
-2. **Balanced Accuracy** — Average recall of both classes (important for imbalance).
-3. **Fraud Capture Rate (Top 485)** — Fraction of fraud cases found among the **top 485 highest predicted probabilities**, simulating limited manual review capacity.
-
----
-
-## Approach
-
 ### 1. Data Exploration & Preprocessing
 
 * Checked class imbalance → Fraud cases were a small minority.
 * Encoded categorical features (`Payment Type`, account types) using **target encoding** to preserve ordinal relationships without expanding dimensionality excessively.
 * Scaled numeric features (`Amount Paid`, `Avg Stock From/To`) using **RobustScaler** to reduce the impact of extreme values.
 * Addressed imbalance with **class weighting** rather than oversampling to avoid synthetic noise.
-
----
 
 ### 2. Model Selection & Justification
 
@@ -193,8 +132,6 @@ The final score is the **average** of three metrics:
   * Added as a **robust ensemble baseline**, though slower than boosting methods.
   * Good for checking consistency of feature importance across models.
 
----
-
 
 ### 3. Model Tuning & Evaluation
 
@@ -205,15 +142,12 @@ The final score is the **average** of three metrics:
   * Search objective focused on **maximizing AUC** while monitoring Balanced Accuracy and Top-485 Capture Rate as secondary metrics.
 * Evaluated all models not only on AUC but also **Balanced Accuracy** and **Fraud Capture Rate (Top-485)** to ensure rare fraud cases were ranked at the top.
 
----
-
 ### 4. Final Submission Strategy
 
 * **Model ensembling** of CatBoost, LightGBM, and Logistic Regression improved stability and reduced variance in predictions.
 * Final predictions were ranked by fraud probability to optimize the **Fraud Capture Rate** metric.
 
 ---
-
 
 ##  Repository Structure
 

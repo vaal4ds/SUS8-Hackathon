@@ -4,7 +4,7 @@
 
 ## Overview
 
-This repository contains the solution I developed during a hackathon focused on **Anti-Money Laundering (AML)** — the process of detecting and preventing illicit financial activities where criminals disguise illegally obtained funds as legitimate income.
+This repository contains the solution my team and I developed during the $8^{th}$ edition of [Stat Under the Stars](https://sis2025.sis-statistica.it/sus-2025/) hackathon, which focused on **Anti-Money Laundering (AML)** — the process of detecting and preventing illicit financial activities where criminals disguise illegally obtained funds as legitimate income.
 
 Money laundering is a **major challenge in modern banking and finance**, as institutions must comply with strict regulations and develop robust detection systems. The dataset provided simulates **transactional banking data** containing thousands of legitimate transactions and a small fraction of suspicious ones potentially linked to money laundering.
 
@@ -165,6 +165,19 @@ Our approach followed these steps:
 * **Imbalanced datasets** require careful metric choice; accuracy alone is misleading.
 * **Top-N prioritization** aligns well with real-world AML processes where only a subset of transactions can be manually reviewed.
 * Feature engineering from **transactional patterns** is often more valuable than raw model complexity.
+
+## Team Members 
+
+*( before the hackathon )*
+<img width="396" height="183" alt="image" src="https://github.com/user-attachments/assets/caaa3dc7-fc5c-4e1e-9f95-f53e7a799cfe" />
+
+
+| **L**eonardo Rocci | |
+| **V**aleria Avino  | |
+| **R**iccardo Soleo | |
+
+*( and... during the hackathon )*
+<img width="426" height="317" alt="image" src="https://github.com/user-attachments/assets/d5784e2f-5963-442d-afda-f22ac9613129" />
 
 ---
 

@@ -77,6 +77,10 @@ The overall score is the **arithmetic mean** of:
 * **Balanced Accuracy**
 * **Fraud Capture Rate (Top 485)**
 
+$$
+\frac{AUC + BA + FCR}{3}
+$$
+
 ---
 
 ##  Approach

@@ -173,14 +173,16 @@ Our approach followed these steps:
 * **R**iccardo Soleo  
 
 
-*( before the hackathon )*
-
 <img width="228" height="105" alt="image" src="https://github.com/user-attachments/assets/fb0005be-238a-4a30-a6ee-3fdbbf7c88aa" />
 
+*( before the hackathon )*
+
+
+
+<img width="228" height="105" alt="image" src="https://github.com/user-attachments/assets/4cdff526-b9f4-4bdf-8ef3-5335014bf447" />
 
 *( ... at 4 a.m., during the hackathon )*
 
-<img width="228" height="105" alt="image" src="https://github.com/user-attachments/assets/4cdff526-b9f4-4bdf-8ef3-5335014bf447" />
 
 ---
 

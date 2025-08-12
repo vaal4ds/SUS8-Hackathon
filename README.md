@@ -98,7 +98,7 @@ The overall score is the **arithmetic mean** of:
 * **Fraud Capture Rate (Top 485)**
 
 $$
-\frac{AUC + BA + FCR}{3}
+\text{Final Score } =\frac{AUC + BA + FCR}{3}
 $$
 
 ---

@@ -152,10 +152,6 @@ Our approach followed these steps:
 ## Results
 
 | Metric                 | Score |
-| ---------------------- | ----- |
-| **AUC**                | ?  |
-| **Balanced Accuracy**  | ?  |
-| **Fraud Capture Rate** | ?  |
 | **Final Score**        | 0.76594 |
 
 ---

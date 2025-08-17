@@ -164,12 +164,6 @@ flowchart LR
 
 ---
 
-##  Hackathon Insights
-
-* **Imbalanced datasets** require careful metric choice; accuracy alone is misleading.
-* **Top-N prioritization** aligns well with real-world AML processes where only a subset of transactions can be manually reviewed.
-* Feature engineering from **transactional patterns** is often more valuable than raw model complexity.
-
 ## Team Members 
 
 * **L**eonardo Rocci   

@@ -103,24 +103,59 @@ $$
 
 ---
 
-## Approach
+# AML Detection Pipeline
 We designed a stacked ensemble pipeline to detect rare fraudulent transactions by combining graph-based features with powerful gradient boosting methods.
 
-Raw transaction data was transformed into a **transaction graph**, from which we extracted structural features (e.g., node degree, connectivity patterns) alongside tabular attributes. Two high-performance gradient boosting models, **LightGBM** and **CatBoost**, served as base learners. Their outputs were **stacked** and fed into a **Logistic Regression** meta-model, which provided an optimal linear blend of predictions.
+## Approach
 
-To improve reliability, we applied **isotonic regression** for probability calibration, ensuring that predicted fraud probabilities matched observed risk levels. Final outputs were ranked by fraud probability, optimized for the competition’s key metric — Fraud Capture Rate in the Top-485 transactions. Hyperparameters were tuned with **Optuna** for efficient search and improved generalization.
+Our approach followed these steps:
 
-This end-to-end pipeline —
-**Graph features** → **LightGBM** + **CatBoost** → **Logistic Regression** (meta) → **Calibration** → **Ranked Predictions** — consistently outperformed individual models and provided a robust, high-performance fraud detection strategy.
+### Pipeline Overview
 
 ```mermaid
-flowchart TD
+flowchart LR
     A[Raw Transaction Data] --> B[Graph Construction & Feature Engineering]
     B --> C[Base Models: LightGBM & CatBoost]
     C --> D[Meta Model: Logistic Regression]
     D --> E[Probability Calibration - Isotonic Regression]
     E --> F[Top-N Ranking for Fraud Detection]
 ```
+
+### 1. Graph Construction & Feature Engineering
+
+* Constructed **graph features** from transaction relationships to capture interactions between accounts.
+* Extracted key **transactional patterns** that help differentiate normal vs. suspicious behavior.
+
+### 2. Base Models
+
+* **LightGBM & CatBoost**:
+
+  * Tree-based models capturing **non-linear interactions** in the graph-derived features.
+  * CatBoost handles categorical features natively.
+
+### 3. Meta Model
+
+* **Logistic Regression**:
+
+  * Combines predictions of base models to produce a more **stable and calibrated score**.
+  * Acts as the stacking layer for ensemble predictions.
+
+### 4. Probability Calibration
+
+* **Isotonic Regression** used to **improve the ranking of fraud probabilities** for downstream Top-N evaluation.
+
+### 5. Top-N Ranking for Fraud Detection
+
+* Ranked transactions by calibrated probability.
+* Optimized **fraud detection efficiency**, focusing on the subset of transactions most likely to be fraudulent.
+
+## Hackathon Insights
+
+* **Stacked ensembles improve stability and predictive performance** compared to single models.
+* **Graph-based features provide significant value** in detecting suspicious transactions.
+* **Top-N ranking aligns with real-world AML constraints**, where only a fraction of transactions can be manually reviewed.
+* Probability calibration further enhances the accuracy of ranking the highest-risk transactions.
+
 ---
 
 ## Results

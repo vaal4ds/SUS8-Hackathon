@@ -151,7 +151,7 @@ Our approach followed these steps:
 
 ## Results
 
-**Final Score** : 0.76594 
+**Final Score** : 0.76594
 
 ---
 

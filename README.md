@@ -103,50 +103,24 @@ $$
 
 ---
 
-##  Approach
+## Approach
+We designed a stacked ensemble pipeline to detect rare fraudulent transactions by combining graph-based features with powerful gradient boosting methods.
 
-Our approach followed these steps:
+Raw transaction data was transformed into a **transaction graph**, from which we extracted structural features (e.g., node degree, connectivity patterns) alongside tabular attributes. Two high-performance gradient boosting models, **LightGBM** and **CatBoost**, served as base learners. Their outputs were **stacked** and fed into a **Logistic Regression** meta-model, which provided an optimal linear blend of predictions.
 
-### 1. Data Exploration & Preprocessing
+To improve reliability, we applied **isotonic regression** for probability calibration, ensuring that predicted fraud probabilities matched observed risk levels. Final outputs were ranked by fraud probability, optimized for the competition’s key metric — Fraud Capture Rate in the Top-485 transactions. Hyperparameters were tuned with **Optuna** for efficient search and improved generalization.
 
-* Checked class imbalance → Fraud cases were a small minority.
-* Encoded categorical features (`Payment Type`, account types) using **target encoding** to preserve ordinal relationships without expanding dimensionality excessively.
-* Scaled numeric features (`Amount Paid`, `Avg Stock From/To`) using **RobustScaler** to reduce the impact of extreme values.
-* Addressed imbalance with **class weighting** rather than oversampling to avoid synthetic noise.
+This end-to-end pipeline —
+**Graph features** → **LightGBM** + **CatBoost** → **Logistic Regression** (meta) → **Calibration** → **Ranked Predictions** — consistently outperformed individual models and provided a robust, high-performance fraud detection strategy.
 
-### 2. Model Selection & Justification
-
-* **Gradient Boosting (LightGBM, CatBoost, XGBoost)**
-
-  * Tree-based methods handle **mixed categorical/numeric data** well.
-  * Resistant to scaling issues and can capture **non-linear interactions** between features.
-  * CatBoost was particularly useful as it handles categorical features natively and reduces preprocessing overhead.
-
-* **Logistic Regression (with regularization)**
-
-  * Provided a **baseline linear model** for interpretability.
-  * Useful for understanding feature importance and correlation patterns.
-
-* **Random Forest**
-
-  * Added as a **robust ensemble baseline**, though slower than boosting methods.
-  * Good for checking consistency of feature importance across models.
-
-
-### 3. Model Tuning & Evaluation
-
-* Used **stratified cross-validation** to preserve class ratios in splits.
-* Hyperparameter tuning was done with **Optuna** — a fast, flexible optimization framework that efficiently explores parameter space using **Tree-structured Parzen Estimators (TPE)**.
-
-  * Chosen over grid/random search because it **finds better parameters with fewer trials**, which is critical for faster iterations on large datasets.
-  * Search objective focused on **maximizing AUC** while monitoring Balanced Accuracy and Top-485 Capture Rate as secondary metrics.
-* Evaluated all models not only on AUC but also **Balanced Accuracy** and **Fraud Capture Rate (Top-485)** to ensure rare fraud cases were ranked at the top.
-
-### 4. Final Submission Strategy
-
-* **Model ensembling** of CatBoost, LightGBM, and Logistic Regression improved stability and reduced variance in predictions.
-* Final predictions were ranked by fraud probability to optimize the **Fraud Capture Rate** metric.
-
+```mermaid
+flowchart TD
+    A[Raw Transaction Data] --> B[Graph Construction & Feature Engineering]
+    B --> C[Base Models: LightGBM & CatBoost]
+    C --> D[Meta Model: Logistic Regression]
+    D --> E[Probability Calibration - Isotonic Regression]
+    E --> F[Top-N Ranking for Fraud Detection]
+```
 ---
 
 ## Results
